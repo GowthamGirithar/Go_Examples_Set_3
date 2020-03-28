@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+// New returns a function Count.
+// Count prints the number of times it has been invoked.
+func New(i int) (Count func()) {
+	n := i
+	return func() {
+		n++
+		fmt.Println(n)
+	}
+}
+//closure maintain the state of the variable
+func main() {
+	f1, f2 := New(0), New(0)
+	f1() // 1
+	f2() // 1 (different n)
+	f1() // 2
+	f2() // 2
+}
