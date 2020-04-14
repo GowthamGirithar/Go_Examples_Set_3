@@ -1,0 +1,38 @@
+{{/*
+    Template for generating Go main() files.
+
+    Inputs:
+            - Service
+            - Printdata
+*/}}
+{{ $printData := .Printdata }}
+/*
+    This is generated code from "{{.TemplateName}}". Hands off.
+*/
+package main
+
+import (
+	"testproject/app"
+	"testproject/app/{{.ServiceName}}/version"
+	"fmt"
+)
+
+
+
+func main() {
+
+    exitChannel := make(chan int)
+
+	version.Init()
+
+	{{.ServiceName}}App := &app.App{}
+	{{ if $printData }}
+
+	   fmt.Println("the main is proper")
+
+
+	{{end}}
+	{{.ServiceName}}App.Execute(exitChannel)
+
+    <-exitChannel
+}
