@@ -38,7 +38,9 @@ func exampleOfCopyInSlice() {
 	copy(s4, s1)
 	//destination is more in size than src, all are copied
 	fmt.Println(s4) //[1 2 3 4 5 6]
-
+        s4[0]=1000
+	
+	fmt.Println(s4,s1) //[1000 2 3 4 5 6] [1 2 3 4 5]
 	//with make example, it have new memory and we are copying the value
 	//but here it dint copy the reference
 	copy(s6, s1)
