@@ -17,6 +17,11 @@ func exampleOfArrayCopy() {
 	a3:=[...]int{10,20,30}
 	a3=a1
 	fmt.Println(a3)
+	a3[0]=10 
+	fmt.Println(a3,a1) //[10 2 3] [1 2 3] 
+	a4:=a1 //assignment is deep copy and will have new address
+	a4[0]=100
+	fmt.Println(a4,a1) //[100 2 3] [1 2 3]
 }
 
 func exampleOfCopyInSlice() {
