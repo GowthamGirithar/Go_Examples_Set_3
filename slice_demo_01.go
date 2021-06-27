@@ -28,7 +28,7 @@ func exampleOfCopyInSlice() {
 
 	fmt.Println(s1, s2)
 	fmt.Println(s2 == nil) // we have given []int{} , so it is not nil , if we have given as []int it will be nil
-
+	//copy will copy the value and not the reference
 	copy(s2, s1)
 	//destination is empty , nothing is copied
 	fmt.Println(s2)
